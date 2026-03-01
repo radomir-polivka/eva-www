@@ -1,0 +1,191 @@
+body, div, hr, img, dl, dt, dd, h2, h3, p, ul, ol {
+	border-width: 0px;
+  border-style: solid;
+	margin: 0px;
+	padding: 0px;
+	display: block;
+}
+
+a {
+	display: inline;
+}
+
+p img
+{
+	display: inline;
+}
+
+ul {
+	padding-left: 1.5em;
+}
+
+ol {
+	padding-left: 2.5em;
+}
+
+/* * *   P A G E   L A Y O U T   * * */
+
+body {
+}
+
+div#universe {
+  background: white url("img/_icon/staff-brown.png") 0px 33px repeat-x;
+	padding-left: 40px;
+	margin-top: 40px;
+}
+
+div#canvas {
+  margin-left: auto;
+  margin-right: auto;
+	width: 659px;
+}
+
+div#name {
+	float: left;
+	width: 24px;
+	padding-top: 155px;
+}
+
+div#sheet-width {
+	float: left;
+	width: 635px;
+}
+
+div#sheet-border {
+	border-color: #301c28;
+	border-width: 1px;
+}
+
+div#sheet-bckg {
+	width: 633px;
+  background: #d8d8d8 url("img/_icon/staff-brown-gray.png") 0px 32px repeat-x;
+}
+
+div#sheet {
+	padding-top: 13px; 
+	  /* padding 13px + img height 19px = background offset 32 ps */
+}
+
+div#menu-lang {
+	padding-right: 20px;
+}
+
+div#menu-lang img {
+	float: right;
+	margin-left: 0.5ex;
+}
+
+div#icon {
+	width: 120px;
+	text-align: center;
+  background-color: #d8d8d8;
+  margin-left: 34px; 
+	clear: both;
+}
+
+div#icon img{
+  margin-left: auto;
+  margin-right: auto;
+	margin-bottom: 20px;
+	background-color: white;
+}
+
+div#menu {
+	float: left;
+	width: 154px;
+}
+
+div#menu img {
+	margin-left: auto;
+	margin-right: 0px;
+	margin-right: 10px;
+	margin-bottom: 3px;
+}
+
+div#text {
+	float: left;
+	width: 459px;
+	padding-bottom: 0px;
+	min-height: 321px;
+	_height: 321px;
+}
+
+p, ul, ol, h3, .left, .right {
+	margin-bottom: 10px;
+}
+
+.with-next {
+	margin-bottom: 0px;
+}
+
+.left {
+	float: left;
+	margin-right: 10px;
+}
+
+.right {
+	float: right;
+	margin-left: 10px;
+}
+
+.clear {
+	clear: both;
+}
+
+div.clear {
+	font-size: 1px;
+}
+
+/* * *   S T Y L E S  * * */
+
+body {
+	font-size: 83%;
+	font-size: 70%;
+  font-family: "Lucida Grande", Verdana, sans-serif;
+	line-height: 150%;
+	letter-spacing: 0.00em;
+	color: #301c28;
+	text-align: justify;
+	text-align: left;
+}
+
+h1  {
+	display: none;
+}
+
+em, h3 {
+	font-weight: bold;
+	font-style: normal;
+	font-size: 100%;
+}
+ 
+a {
+	text-decoration: underline;
+	color: #301c28;
+}
+
+div#menu a, div#name a {
+	display: block;
+}
+
+p.warning {
+	font-style: italic;
+	/*text-align: center;*/
+}
+
+.external
+{
+  padding-right:7px;
+  background-image:url('/img/_icon/link-external.gif');
+  background-position: 100% 0%;
+  background-repeat: no-repeat
+}
+
+
+/* * *   F I G U R E S  * * */
+
+.left, .right {
+	font-size: 90%;
+	text-align: center;
+}
+

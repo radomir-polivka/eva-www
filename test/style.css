@@ -1,0 +1,406 @@
+body, div, hr, img, dl, dt, dd, h2, h3, p, ul, ol {
+	border-width: 0px;
+  border-style: solid;
+	margin: 0px;
+	padding: 0px;
+	display: block;
+}
+
+a {
+	display: inline;
+}
+
+p img
+{
+	display: inline;
+}
+
+ul {
+	padding-left: 1.5em;
+}
+
+ol {
+	padding-left: 2.5em;
+}
+
+/* * *   P A G E   L A Y O U T   * * */
+
+body {
+}
+
+div#universe {
+  background: white url("/img/_icon/staff-brown.png") 0px 33px repeat-x;
+	padding-left: 40px;
+	margin-top: 40px;
+}
+
+div#canvas {
+  margin-left: auto;
+  margin-right: auto;
+	width: 659px;
+}
+
+div#name {
+	float: left;
+	width: 24px;
+	padding-top: 155px;
+}
+
+div#sheet-width {
+	float: left;
+	width: 635px;
+}
+
+div#sheet-border {
+	border-color: #301c28;
+	border-width: 1px;
+}
+
+div#sheet-bckg {
+	width: 633px;
+  background: #d8d8d8 url("/img/_icon/staff-brown-gray.png") 0px 32px repeat-x;
+}
+
+div#sheet {
+	padding-top: 13px; 
+	  /* padding 13px + img height 19px = background offset 32 ps */
+}
+
+div#menu-lang {
+	padding-right: 20px;
+}
+
+div#menu-lang img {
+	float: right;
+	margin-left: 0.5ex;
+}
+
+div#icon {
+	width: 120px;
+	text-align: center;
+  background-color: #d8d8d8;
+  margin-left: 34px; 
+	clear: both;
+}
+
+div#icon img{
+  margin-left: auto;
+  margin-right: auto;
+	margin-bottom: 20px;
+	background-color: white;
+}
+
+div#menu {
+	float: left;
+	width: 154px;
+}
+
+div#menu img {
+	margin-left: auto;
+	margin-right: 0px;
+	margin-right: 10px;
+	margin-bottom: 3px;
+}
+
+div#text {
+	float: left;
+	width: 459px;
+	padding-bottom: 0px;
+	min-height: 321px;
+	_height: 321px;
+}
+
+p, ul, ol, h3, .left, .right {
+	margin-bottom: 10px;
+}
+
+.with-next {
+	margin-bottom: 0px;
+}
+
+.left {
+	float: left;
+	margin-right: 10px;
+}
+
+.right {
+	float: right;
+	margin-left: 10px;
+}
+
+.clear {
+	clear: both;
+}
+
+div.clear {
+	font-size: 1px;
+}
+
+/* * *   S T Y L E S  * * */
+
+body {
+	font-size: 83%;
+	font-size: 70%;
+  font-family: "Lucida Grande", Verdana, sans-serif;
+	line-height: 150%;
+	letter-spacing: 0.00em;
+	color: #301c28;
+	text-align: justify;
+	text-align: left;
+}
+
+h1  {
+	display: none;
+}
+
+em, h3 {
+	font-weight: bold;
+	font-style: normal;
+	font-size: 100%;
+}
+ 
+a {
+	text-decoration: underline;
+	color: #301c28;
+}
+
+div#menu a, div#name a {
+	display: block;
+}
+
+p.warning {
+	font-style: italic;
+	/*text-align: center;*/
+}
+
+.external
+{
+  padding-right:7px;
+  background-image:url('/img/_icon/link-external.gif');
+  background-position: 100% 0%;
+  background-repeat: no-repeat
+}
+
+
+/* * *   F I G U R E S  * * */
+
+.left, .right {
+	font-size: 90%;
+	text-align: center;
+}
+
+/* menu toggle — desktop: hidden (image menu is shown instead) */
+#menu-toggle {
+	display: none;
+}
+#menu-items {
+	display: none;
+}
+
+/* * *   R E S P O N S I V E   D E S I G N   * * */
+
+/* Mobile phones */
+@media (max-width: 480px) {
+	div#universe {
+		padding-left: 0;
+		margin-top: 0;
+		background: white;
+	}
+
+	div#canvas {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		background: white;
+	}
+
+	div#name {
+		float: none;
+		width: 100%;
+		height: 24px;
+		padding: 0;
+		margin: 10px 0 0 0;
+		background: url("/img/_icon/name-brown-mobile.png") 4px top no-repeat;
+	}
+
+	div#name img {
+		display: none;
+	}
+
+	div#sheet-width {
+		float: none;
+		width: auto;
+		margin: 10px 4px 4px 4px;
+		border: 1px solid #301c28;
+		box-sizing: border-box;
+	}
+
+	div#sheet-border {
+		border: none;
+	}
+
+	/* Plain gray band, no staff background here — staff drawn by ::after below.
+	   background-image must be explicitly reset to override the base rule. */
+	div#sheet-bckg {
+		background: #d8d8d8;
+		background-image: none;
+		width: 100%;
+		position: relative;
+	}
+
+	/* Staff drawn only over the right portion: from 8px past the icon's right
+	   edge (10px left + 100px wide + 8px gap = 118px) to 8px from the right.
+	   top:10px matches the left/text spacing for visual balance. */
+	div#sheet-bckg::after {
+		content: "";
+		display: block;
+		position: absolute;
+		top: 10px;
+		left: 118px;
+		right: 8px;
+		height: 100px;
+		background: url("/img/_icon/staff-brown-gray.png") 0 0 repeat-x;
+		background-size: auto 100px;
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	/* icon overlays the staff strip: absolute, top-left (aligned with text), exactly 100px tall */
+	div#icon {
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		width: 100px;
+		height: 100px;
+		margin: 0;
+		padding: 0;
+		z-index: 1;
+	}
+
+	div#icon img {
+		width: 100px;
+		height: 100px;
+		margin: 0;
+	}
+
+	/* sheet content pushed below the 100px staff/icon strip + 4px top margin;
+	   row layout lets menu and lang-selector sit side by side;
+	   div#text gets width:100% to wrap onto its own row below */
+	div#sheet {
+		padding-top: 110px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: stretch;
+	}
+
+	div#menu-lang {
+		order: 2;
+		flex: 0 0 auto;
+		margin: 0;
+		padding: 0;
+		background-color: #d8d8d8;
+	}
+
+	/* hide the image-based lang switcher on mobile */
+	div#menu-lang img {
+		display: none;
+	}
+
+	/* text lang link — same styling as Menu toggle */
+	#lang-text {
+		display: block;
+		padding: 8px 10px;
+		font-weight: bold;
+		font-size: 15px;
+		white-space: nowrap;
+	}
+
+	#lang-text a {
+		text-decoration: none;
+		color: #301c28;
+	}
+
+	div#menu {
+		order: 1;
+		flex: 0 0 auto;
+		width: auto;
+		margin: 0 0 0 auto;
+		padding: 0;
+		background-color: #d8d8d8;
+	}
+
+	/* hide image-based menu links on mobile */
+	div#menu > a {
+		display: none;
+	}
+
+	/* orange toggle button */
+	#menu-toggle {
+		display: block;
+		padding: 8px 10px;
+		color: #cc5500;
+		font-weight: bold;
+		font-size: 15px;
+		cursor: pointer;
+		user-select: none;
+	}
+
+	/* dropdown: vertical list of text links, hidden until toggled */
+	#menu-items {
+		display: none;
+		background-color: #c8c8c8;
+		padding: 4px 0;
+	}
+
+	#menu-items a,
+	#menu-items a.menu-text-inactive {
+		display: block;
+		padding: 7px 10px;
+		text-decoration: none;
+		color: #301c28;
+		border-top: 1px solid #b8b8b8;
+	}
+
+	#menu-items a.menu-text-inactive {
+		color: #888;
+		cursor: default;
+	}
+
+	div#text {
+		order: 2;
+		float: none;
+		width: 100%;
+		padding: 10px;
+		min-height: auto;
+		box-sizing: border-box;
+	}
+
+	.left, .right {
+		float: none;
+		margin-right: 0;
+		margin-left: 0;
+		margin-bottom: 10px;
+		max-width: 100%;
+		height: auto;
+	}
+
+	body {
+		font-size: 12px;
+		line-height: 140%;
+	}
+
+	p, ul, ol, h3, .left, .right {
+		margin-bottom: 8px;
+	}
+
+	ul {
+		padding-left: 1.2em;
+	}
+
+	ol {
+		padding-left: 1.8em;
+	}
+}
+

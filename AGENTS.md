@@ -1,14 +1,20 @@
-WWW Eva Bublova
+# Web project Eva Bublova
 
-A simple web presentation of a musician.
+A simple web presentation of a musician. 
+Hosted at www.bublova.cz.
+
+## Coding Conventions
 
 Use UTF-8 encoding.
 
-## Web Server Configuration
+## Project Structure
 
-FTP credentials are stored in `.env.local` (local-only, not committed to remote).
+There may be more copies of the web in the project direcotry:
 
-Remote paths are the same as in the local project structure.
+1. Production web is always in the root project directory
+2. If /test subdirectory exists, it contains test copy of the web, which is under development. 
+   Images are not coppied to /test, they are always linked from the root project directory.
+3. There can be more web variants under test in directories named /test-<n>, e.g.: /test-2.
 
 ## Database Files
 
@@ -18,7 +24,6 @@ Remote paths are the same as in the local project structure.
 - Date format: YYYYMMDD
 - Time format: HH:MM
 - Descriptions can contain `<br/>` for line breaks and `<a href="">` for links
-- NO entry numbers in the CSV (the numbered lines in the file are display artifacts)
 
 Example entry:
 ```
@@ -27,9 +32,19 @@ Example entry:
 
 ## Workflow
 
-1. Edit local files in `/media/sf_eva-www/`
-2. Commit changes to git (optional but recommended)
-3. Upload to web server using FTP:
+- Edit local files in `/media/sf_eva-www/test`
+- Upload to Web Server (see section How to upload to Web Server).
+- Ask before creating a git commit.
+- Ask before pushing changes to git remote.
+- When test web is approved, copy the files from /test to project root.
+
+## How to upload to Web Server
+
+FTP credentials are stored in `.env.local`.
+
+Remote paths are the same as in the local project structure.
+
+Upload to web server using FTP (example):
    ```bash
    source .env.local
    ftp -n $FTP_SERVER $FTP_PORT << EOF
@@ -39,4 +54,6 @@ Example entry:
    quit
    EOF
    ```
-4. Verify upload by checking file listing on FTP server
+
+Verify upload by checking file listing on FTP server
+

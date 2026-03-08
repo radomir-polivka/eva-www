@@ -1,0 +1,5 @@
+Menu buttons made in Gimp.
+
+Tahoma 14 px, Hinting on, Force auto-hinter on, antialiasing on
+
+Height 18px, (4 pixels under the baseline, 14px above the baseline)

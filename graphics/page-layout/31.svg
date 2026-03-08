@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:ns="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="2000"
+   height="1500"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.45pre1"
+   version="1.0"
+   sodipodi:docbase="H:\bublova.cz\www-work\design"
+   sodipodi:docname="30.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   sodipodi:modified="true">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient3195">
+      <stop
+         style="stop-color:#009600;stop-opacity:1;"
+         offset="0"
+         id="stop3197" />
+      <stop
+         style="stop-color:#930000;stop-opacity:0.39215687;"
+         offset="1"
+         id="stop3199" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient5351">
+      <stop
+         style="stop-color:#646464;stop-opacity:1;"
+         offset="0"
+         id="stop5353" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="0"
+         id="stop5355" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3815">
+      <stop
+         style="stop-color:#000000;stop-opacity:0.80869567;"
+         offset="0"
+         id="stop3817" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0.10434783;"
+         offset="1"
+         id="stop3819" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3284">
+      <stop
+         id="stop3286"
+         offset="0"
+         style="stop-color:#b62a5d;stop-opacity:0.82608694;" />
+      <stop
+         id="stop3288"
+         offset="1"
+         style="stop-color:#0000ff;stop-opacity:0;" />
+    </linearGradient>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 750 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="2000 : 750 : 1"
+       inkscape:persp3d-origin="1000 : 500 : 1"
+       id="perspective71" />
+    <inkscape:perspective
+       id="perspective3421"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="788.93028"
+     inkscape:cy="1100.5615"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     width="2000px"
+     height="1500px"
+     showgrid="false"
+     showguides="false"
+     inkscape:window-width="981"
+     inkscape:window-height="977"
+     inkscape:window-x="66"
+     inkscape:window-y="20"
+     inkscape:snap-global="true"
+     showborder="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3485"
+       visible="true"
+       enabled="true"
+       empspacing="1" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <ns:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </ns:Work>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#dad8d8;fill-opacity:1;stroke:#000000;stroke-width:0.99999994;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.8;stroke-opacity:1"
+       id="rect7264"
+       width="631"
+       height="587"
+       x="445"
+       y="59.999996" />
+    <image
+       y="80"
+       x="490"
+       id="image2226"
+       height="100"
+       width="100"
+       sodipodi:absref="D:\todelete\evabublova\img\corner\bum.jpg"
+       xlink:href="venezia-1.jpg" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect6380"
+       width="974"
+       height="1"
+       x="600"
+       y="80" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect6382"
+       width="974"
+       height="1"
+       x="600"
+       y="84" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect6384"
+       width="974"
+       height="1"
+       x="600"
+       y="88" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect6388"
+       width="974"
+       height="1"
+       x="600"
+       y="92" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect6390"
+       width="974"
+       height="1"
+       x="600"
+       y="96" />
+    <image
+       y="825"
+       x="250"
+       id="image3423"
+       height="1024"
+       width="1280"
+       sodipodi:absref="H:\bublova.cz\www-work\design\kozena.jpg"
+       xlink:href="kozena.jpg" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3477"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       transform="translate(-3,0)"><flowRegion
+         id="flowRegion3479"><rect
+           id="rect3481"
+           width="571"
+           height="145"
+           x="500"
+           y="70" /></flowRegion><flowPara
+         id="flowPara3483" /></flowRoot>    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="1157"
+       y="171"
+       id="text3497"><tspan
+         sodipodi:role="line"
+         id="tspan3499"
+         x="1157"
+         y="171" /></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3519"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       transform="translate(-3,0)"><flowRegion
+         id="flowRegion3521"><rect
+           id="rect3523"
+           width="116"
+           height="57"
+           x="736"
+           y="113" /></flowRegion><flowPara
+         id="flowPara3525" /></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3529"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       transform="translate(-3,0)"><flowRegion
+         id="flowRegion3531"><rect
+           id="rect3533"
+           width="380"
+           height="69"
+           x="691"
+           y="100" /></flowRegion><flowPara
+         id="flowPara3535" /></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3707"
+       style="font-size:13.91175189px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:125%;writing-mode:lr;text-anchor:end;fill:#aa4400;fill-opacity:0.70588235;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Tahoma"
+       transform="matrix(1.2287822,0,0,1.0764687,-347.13247,-46.454384)"><flowRegion
+         id="flowRegion3709"><rect
+           id="rect3711"
+           width="152.50984"
+           height="308.4317"
+           x="611"
+           y="220"
+           style="font-size:13.91175189px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:125%;writing-mode:lr;text-anchor:end;fill:#aa4400;fill-opacity:0.70588235;font-family:Tahoma" /></flowRegion><flowPara
+         id="flowPara8359">Živochopis</flowPara><flowPara
+         id="flowPara8361">Koncerty</flowPara><flowPara
+         id="flowPara8363">CD</flowPara><flowPara
+         id="flowPara8365">Pozitiv</flowPara><flowPara
+         id="flowPara8367">Publikace</flowPara><flowPara
+         id="flowPara8369">Tudlikace</flowPara></flowRoot>    <rect
+       style="fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:100;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect3749"
+       width="3"
+       height="6"
+       x="370"
+       y="583" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3751"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       transform="translate(-3,0)"><flowRegion
+         id="flowRegion3753"><rect
+           id="rect3755"
+           width="455"
+           height="375"
+           x="603"
+           y="192" /></flowRegion><flowPara
+         id="flowPara3757" /></flowRoot>    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect3793"
+       width="974"
+       height="1"
+       x="600"
+       y="163" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect3795"
+       width="974"
+       height="1"
+       x="600"
+       y="167" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect3797"
+       width="974"
+       height="1"
+       x="600"
+       y="171" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect3799"
+       width="974"
+       height="1"
+       x="600"
+       y="175" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect3801"
+       width="974"
+       height="1"
+       x="600"
+       y="179" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect3803"
+       width="974"
+       height="1"
+       x="600"
+       y="119" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect3805"
+       width="974"
+       height="1"
+       x="600"
+       y="123" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect3807"
+       width="974"
+       height="1"
+       x="600"
+       y="127" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect3809"
+       width="974"
+       height="1"
+       x="600"
+       y="131" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect3811"
+       width="974"
+       height="1"
+       x="600"
+       y="135" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot7143"
+       style="font-size:13.91175175px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:125%;writing-mode:lr-tb;text-anchor:end;fill:#aa4400;fill-opacity:0.70588235;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Tahoma"
+       transform="matrix(1.2287822,0,0,1.0764687,-345.84797,66.43884)"><flowRegion
+         id="flowRegion7145"><rect
+           id="rect7147"
+           width="152.50984"
+           height="308.4317"
+           x="611"
+           y="220"
+           style="font-size:13.91175175px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:125%;writing-mode:lr-tb;text-anchor:end;fill:#aa4400;fill-opacity:0.70588235;font-family:Tahoma" /></flowRegion><flowPara
+         id="flowPara7165">Francouzština</flowPara></flowRoot>    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect7179"
+       width="510"
+       height="1"
+       x="-30"
+       y="80" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect7181"
+       width="510"
+       height="1"
+       x="-30"
+       y="84" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect7183"
+       width="510"
+       height="1"
+       x="-30"
+       y="88" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect7185"
+       width="510"
+       height="1"
+       x="-30"
+       y="92" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect7187"
+       width="510"
+       height="1"
+       x="-30"
+       y="96" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect7189"
+       width="510"
+       height="1"
+       x="-30"
+       y="163" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect7191"
+       width="510"
+       height="1"
+       x="-30"
+       y="167" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect7193"
+       width="510"
+       height="1"
+       x="-30"
+       y="171" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect7195"
+       width="510"
+       height="1"
+       x="-30"
+       y="175" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect7197"
+       width="510"
+       height="1"
+       x="-30"
+       y="179" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect7199"
+       width="510"
+       height="1"
+       x="-30"
+       y="119" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect7201"
+       width="510"
+       height="1"
+       x="-30"
+       y="123" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect7203"
+       width="510"
+       height="1"
+       x="-30"
+       y="127" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect7205"
+       width="510"
+       height="1"
+       x="-30"
+       y="131" />
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect7207"
+       width="510"
+       height="1"
+       x="-30"
+       y="135" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot7209"><flowRegion
+         id="flowRegion7211"><rect
+           id="rect7213"
+           width="444"
+           height="330"
+           x="610"
+           y="196" /></flowRegion><flowPara
+         id="flowPara7215" /></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot7237"
+       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;font-family:Arial"
+       transform="translate(0,6.363961)"><flowRegion
+         id="flowRegion7239"><rect
+           id="rect7241"
+           width="459.61942"
+           height="339.41125"
+           x="600.33368"
+           y="189.73114"
+           style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;font-family:Arial" /></flowRegion><flowPara
+         id="flowPara7243">Náš milý živočich se narodil. Vločka se narodil v noře. Náš milý živočich se narodil. Vločka se narodil v noře.Doufám že čárka. Náš milý živočich se narodil. Vločka se narodil v noře. Náš milý živočich se narodil. Vločka se narodil v noře.Doufám že čárka. Náš milý živočich se narodil. Vločka se narodil v noře. Náš milý živočich se narodil. Vločka se narodil v noře.Doufám že čárka. Náš milý živočich se narodil. Vločka se narodil v noře. Náš milý živočich se narodil. Vločka se narodil v noře.Doufám že čárka. Náš milý živočich se narodil. Vločka se narodil v noře. Náš milý živočich se narodil. Vločka se narodil v noře.Doufám že čárka. Náš milý živočich se narodil. Vločka se narodil v noře. Náš milý živočich se narodil. Vločka se narodil v noře.Doufám že čárka. Náš milý živočich se narodil. Vločka se narodil v noře. Náš milý živočich se narodil. Vločka se narodil v noře.Doufám že čárka. Náš milý živočich se narodil. Vločka se narodil v noře. Náš milý živočich se narodil. Vločka se narodil v noře.Doufám že čárka. Náš milý živočich se narodil. Vločka se narodil v noře. Náš milý živočich se narodil. Vločka se narodil v noře.Doufám že čárka. Náš </flowPara></flowRoot>    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.8;stroke-opacity:1"
+       id="rect7382"
+       width="7"
+       height="74"
+       x="1392"
+       y="1531" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot7372"
+       style="font-size:19.12865885px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:125%;writing-mode:lr;text-anchor:end;fill:#aa4400;fill-opacity:0.70588235;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Tahoma"
+       transform="matrix(0,-1.2287822,1.0764687,0,179.55517,1455.7853)"><flowRegion
+         id="flowRegion7374"><rect
+           id="rect7376"
+           width="418.62698"
+           height="264.77042"
+           x="611"
+           y="220"
+           style="font-size:19.12865885px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:125%;writing-mode:lr;text-anchor:end;fill:#aa4400;fill-opacity:0.70588235;font-family:Tahoma" /></flowRegion><flowPara
+         id="flowPara8371">Eva Bublová - varhany, cembalo</flowPara></flowRoot>  </g>
+</svg>

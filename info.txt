@@ -1,0 +1,28 @@
+______________________________________________________________________________
+
+domena bublova.cz
+______________________________________________________________________________
+
+  drzitel domeny             polivkar (mojeID)
+
+  registrator domeny         subreg (zde se prodluzuje platnost domeny)
+
+  administrace domeny na webu subreg: polivkar (mojeID)
+  2025-12: mojeId asi zrusili, login polivkar.mojeid.cz, Perslak0.
+
+
+______________________________________________________________________________
+
+webhosting subreg.cz
+______________________________________________________________________________
+
+  free - 10MB limit
+  proto jsem foto pro tisk prevedl z TIF na JPEG
+
+  FTP:
+Login: 	57c9a3b99b_61819
+Heslo: 	6763479b1188087
+Server: 	yurika.gransy.com
+port 21
+
+ 

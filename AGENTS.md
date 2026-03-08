@@ -9,12 +9,14 @@ Use UTF-8 encoding.
 
 ## Project Structure
 
-There may be more copies of the web in the project direcotry:
+There may be more copies of the web in the project directory:
 
-1. Production web is always in the root project directory
-2. If /test subdirectory exists, it contains test copy of the web, which is under development. 
-   Images are not coppied to /test, they are always linked from the root project directory.
-3. There can be more web variants under test in directories named /test-<n>, e.g.: /test-2.
+1. Production web is always in the root project directory.
+2. If /test subdirectory exists, it contains a test copy of the web under development.
+3. Additional variants under test are in directories named /test-<n>, e.g.: /test-2.
+
+Images (under /img/) are always stored in the root project directory and referenced
+by absolute paths, so they are shared across all test variants without copying.
 
 ## Database Files
 
@@ -36,7 +38,7 @@ Example entry:
 - Upload to Web Server (see section How to upload to Web Server).
 - Ask before creating a git commit.
 - Ask before pushing changes to git remote.
-- When test web is approved, copy the files from /test to project root.
+- When test web is approved, copy the files from the chosen test variant to project root.
 
 ## How to upload to Web Server
 

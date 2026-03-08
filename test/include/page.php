@@ -75,6 +75,26 @@ function format_menu($page_id, $lang) {
 </div>';
 }
 
+function mobile_menu($page_id, $lang) {
+
+  global $menu, $base_path;
+
+  $text_items = '';
+  foreach ($menu[$lang] as $id => $m) {
+    if ($page_id == $id) {
+      $text_anchor_attr = 'class="menu-text-inactive"';
+    } else {
+      $text_anchor_attr = 'href="' . $base_path . '/' . $lang . '/' . $m[0] . '.php"';
+    }
+
+    $label = $m[2];
+
+    $text_items .= '
+<a ' . $text_anchor_attr . ' target="_self">' . $label . '</a>';
+  }
+
+  return $text_items; 
+}
 
 function display() {
 
@@ -155,12 +175,19 @@ function display() {
 
           <div id="menu-lang">
             ' . $lang_switch[$lang] . '
-            ' . $lang_switch_text[$lang] . '
           </div> <!-- menu-lang -->
 
           <div id="icon">
             <a href="' . $home_link[$lang] . '"><img src="/img/_corner/' . 
               $icon[$id] . '.jpg" height=100 width=100/></a>
+          </div>
+
+          <div id="menu-mobile">
+            <span id="menu-toggle" onclick="var m=document.getElementById(\'menu-items\');m.style.display=m.style.display===\'block\'?\'none\':\'block\';">Menu &#9660;</span>
+            ' . $lang_switch_text[$lang] . '
+            <div id="menu-items">
+            ' . mobile_menu($id, $lang) . '
+            </div>
           </div>
 
           <div id="menu"> 
@@ -173,7 +200,7 @@ function display() {
   echo ($cnt);
 
   echo '
-              </div> <!-- text -->
+          </div> <!-- text -->
           <div class="clear">&nbsp;</div>
         </div> <!-- sheet -->
         </div> <!-- sheet-border -->

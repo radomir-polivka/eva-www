@@ -58,7 +58,10 @@ div#sheet-border {
 
 div#sheet-bckg {
 	width: 633px;
-  background: #d8d8d8 url("/img/_icon/staff-brown-gray.png") 0px 32px repeat-x;
+	background-color: #d8d8d8;
+	background-image: url("/img/_icon/staff-brown-gray.png");
+	background-position: 0px 32px;
+	background-repeat: repeat-x;
 }
 
 div#sheet {
@@ -88,6 +91,10 @@ div#icon img{
   margin-right: auto;
 	margin-bottom: 20px;
 	background-color: white;
+}
+
+div#menu-mobile {
+	display: none;
 }
 
 div#menu {
@@ -197,7 +204,7 @@ p.warning {
 	display: none;
 }
 
-/* * *   R E S P O N S I V E   D E S I G N   * * */
+/* * *   R E S P O N S I V E   D E S I G N   * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /* Mobile phones */
 @media (max-width: 480px) {
@@ -231,51 +238,21 @@ p.warning {
 	div#sheet-width {
 		float: none;
 		width: auto;
-		margin: 10px 4px 4px 4px;
-		border: 1px solid #301c28;
-		box-sizing: border-box;
+		margin: 0 4px 4px 4px;
+		background-color: #d8d8d8;
 	}
 
-	div#sheet-border {
-		border: none;
-	}
-
-	/* Plain gray band, no staff background here — staff drawn by ::after below.
-	   background-image must be explicitly reset to override the base rule. */
 	div#sheet-bckg {
-		background: #d8d8d8;
-		background-image: none;
-		width: 100%;
-		position: relative;
-	}
-
-	/* Staff drawn only over the right portion: from 8px past the icon's right
-	   edge (10px left + 100px wide + 8px gap = 118px) to 8px from the right.
-	   top:10px matches the left/text spacing for visual balance. */
-	div#sheet-bckg::after {
-		content: "";
-		display: block;
-		position: absolute;
-		top: 10px;
-		left: 118px;
-		right: 8px;
-		height: 100px;
-		background: url("/img/_icon/staff-brown-gray.png") 0 0 repeat-x;
-		background-size: auto 100px;
-		pointer-events: none;
-		z-index: 0;
+		margin: 10px;
+		width: auto;
+		background-position: 0 0;
 	}
 
 	/* icon overlays the staff strip: absolute, top-left (aligned with text), exactly 100px tall */
 	div#icon {
-		position: absolute;
-		top: 10px;
-		left: 10px;
-		width: 100px;
-		height: 100px;
 		margin: 0;
-		padding: 0;
-		z-index: 1;
+		width: 110px;
+		text-align: left;
 	}
 
 	div#icon img {
@@ -288,19 +265,11 @@ p.warning {
 	   row layout lets menu and lang-selector sit side by side;
 	   div#text gets width:100% to wrap onto its own row below */
 	div#sheet {
-		padding-top: 110px;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		align-items: stretch;
+		padding-top: 0px;
 	}
 
 	div#menu-lang {
-		order: 2;
-		flex: 0 0 auto;
-		margin: 0;
-		padding: 0;
-		background-color: #d8d8d8;
+		display: none;
 	}
 
 	/* hide the image-based lang switcher on mobile */
@@ -308,12 +277,28 @@ p.warning {
 		display: none;
 	}
 
-	/* text lang link — same styling as Menu toggle */
-	#lang-text {
+	div#menu {
+		display: none;
+	}
+
+	/* hide image-based menu links on mobile */
+	div#menu > a {
+		display: none;
+	}
+
+	div#menu-mobile {
 		display: block;
-		padding: 8px 10px;
+		text-align: right;
+		width: 100%;
+		font-size: 14px;
+		padding-top: 4px;
+		padding-bottom: 4px;
+	}
+
+	#lang-text {
+		_display: block;
+		padding: 0px;
 		font-weight: bold;
-		font-size: 15px;
 		white-space: nowrap;
 	}
 
@@ -322,27 +307,12 @@ p.warning {
 		color: #301c28;
 	}
 
-	div#menu {
-		order: 1;
-		flex: 0 0 auto;
-		width: auto;
-		margin: 0 0 0 auto;
-		padding: 0;
-		background-color: #d8d8d8;
-	}
-
-	/* hide image-based menu links on mobile */
-	div#menu > a {
-		display: none;
-	}
-
 	/* orange toggle button */
 	#menu-toggle {
-		display: block;
+		display: inline;
 		padding: 8px 10px;
 		color: #cc5500;
 		font-weight: bold;
-		font-size: 15px;
 		cursor: pointer;
 		user-select: none;
 	}
@@ -351,7 +321,7 @@ p.warning {
 	#menu-items {
 		display: none;
 		background-color: #c8c8c8;
-		padding: 4px 0;
+		padding: 0;
 	}
 
 	#menu-items a,
@@ -372,7 +342,8 @@ p.warning {
 		order: 2;
 		float: none;
 		width: 100%;
-		padding: 10px;
+		padding: 0px;
+		padding-top: 0px;
 		min-height: auto;
 		box-sizing: border-box;
 	}

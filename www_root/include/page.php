@@ -1,6 +1,6 @@
 <?php
 
-require_once('util.php');
+require_once(__DIR__ . '/util.php');
 
 
 $icon = array(
@@ -16,24 +16,24 @@ $icon = array(
 );
 
 $menu_cz = array(
-/* page id                   page file name            menu img file name */
-  'zivotopis'      => array('zivotopis'             , 'zivotopis'             ),
-  'concerts'       => array('koncerty'              , 'koncerty'              ),
-  'cd-mp3'         => array('cd-mp3'                , 'cd-mp3'                ),
-  'pozitiv'        => array('varhanni-pozitiv'      , 'pozitiv'               ),
-  'foto'           => array('foto'                  , 'foto'                  ),
-  'pro-poradatele' => array('pro-poradatele'        , 'pro-poradatele'        ),
-  'kontakt'        => array('kontakt'               , 'kontakt'               ),
+/* page id                   page file name            menu img file name     text label */
+  'zivotopis'      => array('zivotopis'             , 'zivotopis'             , 'Životopis'             ),
+  'concerts'       => array('koncerty'              , 'koncerty'              , 'Koncerty'              ),
+  'cd-mp3'         => array('cd-mp3'                , 'cd-mp3'                , 'CD, mp3'               ),
+  'pozitiv'        => array('varhanni-pozitiv'      , 'pozitiv'               , 'Varhanní pozitiv'      ),
+  'foto'           => array('foto'                  , 'foto'                  , 'Foto'                  ),
+  'pro-poradatele' => array('pro-poradatele'        , 'pro-poradatele'        , 'Pro pořadatele'        ),
+  'kontakt'        => array('kontakt'               , 'kontakt'               , 'Kontakt'               ),
 );
 
 $menu_en = array(
-  'zivotopis'      => array('curriculum-vitae'      , 'curriculum-vitae'      ),
-  'concerts'       => array('concerts'              , 'concerts'              ),
-  'cd-mp3'         => array('cd-mp3'                , 'cd-mp3'                ),
-  'pozitiv'        => array('positive-organ'        , 'positive-organ'        ),
-  'foto'           => array('photo-gallery'         , 'photo-gallery'         ),
-  'pro-poradatele' => array('for-concert-organizers', 'for-concert-organizers'),
-  'kontakt'        => array('contact'               , 'contact'               ),
+  'zivotopis'      => array('curriculum-vitae'      , 'curriculum-vitae'      , 'Curriculum vitae'      ),
+  'concerts'       => array('concerts'              , 'concerts'              , 'Concerts'              ),
+  'cd-mp3'         => array('cd-mp3'                , 'cd-mp3'                , 'CD, mp3'               ),
+  'pozitiv'        => array('positive-organ'        , 'positive-organ'        , 'Positive organ'        ),
+  'foto'           => array('photo-gallery'         , 'photo-gallery'         , 'Photo gallery'         ),
+  'pro-poradatele' => array('for-concert-organizers', 'for-concert-organizers', 'For concert organizers'),
+  'kontakt'        => array('contact'               , 'contact'               , 'Contact'               ),
 );
 
 $menu = array(
@@ -44,30 +44,61 @@ $menu = array(
 
 function format_menu($page_id, $lang) {
 
-  global $menu;
+  global $menu, $base_path;
 
   $hmtl = '';
+  $text_items = '';
   foreach ($menu[$lang] as $id => $m) {
     if ($page_id == $id) {
       $anchor_attr = 'class="inactive"';
       $dir = 'inactive';
+      $text_anchor_attr = 'class="menu-text-inactive"';
     } else {
-      $anchor_attr = 'href="/' . $lang . '/' . $m[0] . '.php"';
+      $anchor_attr = 'href="' . $base_path . '/' . $lang . '/' . $m[0] . '.php"';
       $dir = 'active';
+      $text_anchor_attr = 'href="' . $base_path . '/' . $lang . '/' . $m[0] . '.php"';
     }
 
     $icon_fname = $dir . '/' . $m[1] . '.png';
+    $label = $m[2];
 
     $hmtl .='
 <a ' . $anchor_attr . ' target="_self"><img src="/img/_menu/' . $icon_fname . '" /></a>';
+
+    $text_items .= '
+<a ' . $text_anchor_attr . ' target="_self">' . $label . '</a>';
   }
-  return $hmtl;
+
+  return $hmtl . '
+<div id="menu-toggle" onclick="var m=document.getElementById(\'menu-items\');m.style.display=m.style.display===\'block\'?\'none\':\'block\';">Menu &#9660;</div>
+<div id="menu-items">' . $text_items . '
+</div>';
 }
 
+function mobile_menu($page_id, $lang) {
+
+  global $menu, $base_path;
+
+  $text_items = '';
+  foreach ($menu[$lang] as $id => $m) {
+    if ($page_id == $id) {
+      $text_anchor_attr = 'class="menu-text-inactive"';
+    } else {
+      $text_anchor_attr = 'href="' . $base_path . '/' . $lang . '/' . $m[0] . '.php"';
+    }
+
+    $label = $m[2];
+
+    $text_items .= '
+<a ' . $text_anchor_attr . ' target="_self">' . $label . '</a>';
+  }
+
+  return $text_items; 
+}
 
 function display() {
 
-  global $menu, $icon;
+  global $menu, $icon, $base_path;
 
   global $id;
   global $title, $descr, $keywords, $lang;
@@ -84,13 +115,18 @@ function display() {
   );
 
   $lang_switch = array (
-    'cz' => '<img src="/img/_menu/inactive/cesky.png" /><img src="/img/_menu/inactive/bar.png" /><a href="/en/index.php"><img src="/img/_menu/active/english.png" /></a>',
-    'en' => '<a href="/index.php"><img src="/img/_menu/active/cesky.png" /></a><img src="/img/_menu/inactive/bar.png" /><img src="/img/_menu/inactive/english.png" />',
+    'cz' => '<img src="/img/_menu/inactive/cesky.png" /><img src="/img/_menu/inactive/bar.png" /><a href="' . $base_path . '/en/index.php"><img src="/img/_menu/active/english.png" /></a>',
+    'en' => '<a href="' . $base_path . '/index.php"><img src="/img/_menu/active/cesky.png" /></a><img src="/img/_menu/inactive/bar.png" /><img src="/img/_menu/inactive/english.png" />',
+  );
+
+  $lang_switch_text = array (
+    'cz' => '<span id="lang-text"><a href="' . $base_path . '/en/index.php">English</a></span>',
+    'en' => '<span id="lang-text"><a href="' . $base_path . '/index.php">Česky</a></span>',
   );
 
   $home_link = array (
-    'cz' => '/index.php',
-    'en' => '/en/index.php',
+    'cz' => $base_path . '/index.php',
+    'en' => $base_path . '/en/index.php',
   );
 
   if (!isset($descr))
@@ -113,8 +149,9 @@ function display() {
     <meta http-equiv="content-language" content="cs" />
     <meta http-equiv="description" content="' . $descr . '" />
     <meta http-equiv="keywords" content="' . $keyw . '" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>' . $title . '</title>
-    <link rel="StyleSheet" href="/style.css" type="text/css">
+    <link rel="StyleSheet" href="' . $base_path . '/style.css" type="text/css">
     ' . $base . '
   </head>
 
@@ -145,6 +182,14 @@ function display() {
               $icon[$id] . '.jpg" height=100 width=100/></a>
           </div>
 
+          <div id="menu-mobile">
+            <span id="menu-toggle" onclick="var m=document.getElementById(\'menu-items\');m.style.display=m.style.display===\'block\'?\'none\':\'block\';">Menu &#9660;</span>
+            ' . $lang_switch_text[$lang] . '
+            <div id="menu-items">
+            ' . mobile_menu($id, $lang) . '
+            </div>
+          </div>
+
           <div id="menu"> 
 ' . format_menu($id, $lang) . '
           </div> <!-- menu -->
@@ -155,7 +200,7 @@ function display() {
   echo ($cnt);
 
   echo '
-              </div> <!-- text -->
+          </div> <!-- text -->
           <div class="clear">&nbsp;</div>
         </div> <!-- sheet -->
         </div> <!-- sheet-border -->

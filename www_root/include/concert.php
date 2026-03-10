@@ -64,7 +64,7 @@ function format_concert_list($mode = 'normal') {
 
 function read_concerts() {
 
-  $handle = fopen("../userconfig/concert.csv", "r");
+  $handle = fopen($_SERVER['DOCUMENT_ROOT'] . "/userconfig/concert.csv", "r");
   $concert_list = array();
 
   while ($line = fgetcsv($handle, '1000', '|')) {

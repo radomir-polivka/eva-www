@@ -1,6 +1,7 @@
 <?php
 
-require('include/page.php');
+$base_path = '.';
+require(__DIR__ . '/include/page.php');
 
 $id = 'index';
 $lang = 'cz';

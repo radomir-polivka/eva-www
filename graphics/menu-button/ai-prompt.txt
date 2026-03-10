@@ -1,0 +1,17 @@
+Create a script that will generate a simple web button similar to www_root\img\_menu\active\for-concert-organizers.png.
+
+The script will run on Windows 7.
+Available tools are python 3 and gimp 2.8.
+Ptyhon 3 is in $PATH.
+gimp 2.8 is at D:\app-portable\gimp\App\gimp\bin.
+If you want to use another free tool available for Windows 7, let me know.
+
+The button will have fixed background color.
+Tahoma font will be used.
+
+The script will take these input parameters:
+text label - first line
+text label - second line
+text color (default  #cc5500 )
+font size (default 14px)
+output direcotry (default ./out)

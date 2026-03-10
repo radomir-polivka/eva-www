@@ -29,7 +29,7 @@ body {
 }
 
 div#universe {
-  background: white url("img/_icon/staff-brown.png") 0px 33px repeat-x;
+  background: white url("/img/_icon/staff-brown.png") 0px 33px repeat-x;
 	padding-left: 40px;
 	margin-top: 40px;
 }
@@ -58,7 +58,10 @@ div#sheet-border {
 
 div#sheet-bckg {
 	width: 633px;
-  background: #d8d8d8 url("img/_icon/staff-brown-gray.png") 0px 32px repeat-x;
+	background-color: #d8d8d8;
+	background-image: url("/img/_icon/staff-brown-gray.png");
+	background-position: 0px 32px;
+	background-repeat: repeat-x;
 }
 
 div#sheet {
@@ -88,6 +91,10 @@ div#icon img{
   margin-right: auto;
 	margin-bottom: 20px;
 	background-color: white;
+}
+
+div#menu-mobile {
+	display: none;
 }
 
 div#menu {
@@ -139,8 +146,8 @@ div.clear {
 /* * *   S T Y L E S  * * */
 
 body {
-	font-size: 83%;
-	font-size: 70%;
+	font-size: 78%;
+
   font-family: "Lucida Grande", Verdana, sans-serif;
 	line-height: 150%;
 	letter-spacing: 0.00em;
@@ -187,5 +194,184 @@ p.warning {
 .left, .right {
 	font-size: 90%;
 	text-align: center;
+}
+
+/* menu toggle — desktop: hidden (image menu is shown instead) */
+#menu-toggle {
+	display: none;
+}
+#menu-items {
+	display: none;
+}
+
+/* * *   R E S P O N S I V E   D E S I G N   * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* Mobile phones */
+@media (max-width: 480px) {
+	div#universe {
+		padding-left: 0;
+		margin-top: 0;
+		background: white;
+	}
+
+	div#canvas {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		background: white;
+	}
+
+	div#name {
+		float: none;
+		width: 100%;
+		height: 24px;
+		padding: 0;
+		margin: 10px 0 0 0;
+		background: url("/img/_icon/name-brown-mobile.png") 4px top no-repeat;
+	}
+
+	div#name img {
+		display: none;
+	}
+
+	div#sheet-width {
+		float: none;
+		width: auto;
+		margin: 0 4px 4px 4px;
+		background-color: #d8d8d8;
+	}
+
+	div#sheet-bckg {
+		margin: 10px;
+		width: auto;
+		background-position: 0 0;
+	}
+
+	/* icon overlays the staff strip: absolute, top-left (aligned with text), exactly 100px tall */
+	div#icon {
+		margin: 0;
+		width: 110px;
+		text-align: left;
+	}
+
+	div#icon img {
+		width: 100px;
+		height: 100px;
+		margin: 0;
+	}
+
+	/* sheet content pushed below the 100px staff/icon strip + 4px top margin;
+	   row layout lets menu and lang-selector sit side by side;
+	   div#text gets width:100% to wrap onto its own row below */
+	div#sheet {
+		padding-top: 0px;
+	}
+
+	div#menu-lang {
+		display: none;
+	}
+
+	/* hide the image-based lang switcher on mobile */
+	div#menu-lang img {
+		display: none;
+	}
+
+	div#menu {
+		display: none;
+	}
+
+	/* hide image-based menu links on mobile */
+	div#menu > a {
+		display: none;
+	}
+
+	div#menu-mobile {
+		display: block;
+		text-align: right;
+		width: 100%;
+		font-size: 14px;
+		padding-top: 4px;
+		padding-bottom: 4px;
+	}
+
+	#lang-text {
+		_display: block;
+		padding: 0px;
+		font-weight: bold;
+		white-space: nowrap;
+	}
+
+	#lang-text a {
+		text-decoration: none;
+		color: #301c28;
+	}
+
+	/* orange toggle button */
+	#menu-toggle {
+		display: inline;
+		padding: 8px 10px;
+		color: #cc5500;
+		font-weight: bold;
+		cursor: pointer;
+		user-select: none;
+	}
+
+	/* dropdown: vertical list of text links, hidden until toggled */
+	#menu-items {
+		display: none;
+		background-color: #c8c8c8;
+		padding: 0;
+	}
+
+	#menu-items a,
+	#menu-items a.menu-text-inactive {
+		display: block;
+		padding: 7px 10px;
+		text-decoration: none;
+		color: #301c28;
+		border-top: 1px solid #b8b8b8;
+	}
+
+	#menu-items a.menu-text-inactive {
+		color: #888;
+		cursor: default;
+	}
+
+	div#text {
+		order: 2;
+		float: none;
+		width: 100%;
+		padding: 0px;
+		padding-top: 0px;
+		min-height: auto;
+		box-sizing: border-box;
+	}
+
+	.left, .right {
+		float: none;
+		margin-right: 0;
+		margin-left: 0;
+		margin-bottom: 10px;
+		max-width: 100%;
+		height: auto;
+	}
+
+	body {
+		font-size: 12px;
+		line-height: 140%;
+	}
+
+	p, ul, ol, h3, .left, .right {
+		margin-bottom: 8px;
+	}
+
+	ul {
+		padding-left: 1.2em;
+	}
+
+	ol {
+		padding-left: 1.8em;
+	}
 }
 

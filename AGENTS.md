@@ -9,18 +9,21 @@ Use UTF-8 encoding.
 
 ## Project Structure
 
-There may be more copies of the web in the project directory:
+The repository root contains:
+- `www_root/` — the web (production and test copies)
+- `graphics/` — graphics source files (XCF, SVG, hi-res images)
 
-1. Production web is always in the root project directory.
-2. If /test subdirectory exists, it contains a test copy of the web under development.
-3. Additional variants under test are in directories named /test-<n>, e.g.: /test-2.
+There may be more copies of the web inside `www_root/`:
 
-Images (under /img/) are always stored in the root project directory and referenced
+1. Production web is always directly in `www_root/`.
+2. If `www_root/test*` subdirectories exist, they contain test copies of the web under development (variants).
+
+Images (under `www_root/img/`) are always stored in the production directory and referenced
 by absolute paths, so they are shared across all test variants without copying.
 
 ## Database Files
 
-**Concert Database (`userconfig/concert.csv`):**
+**Concert Database (`www_root/userconfig/concert.csv`):**
 - Format: Pipe-separated values (|) with HTML formatting
 - Structure: `date | time | location | description`
 - Date format: YYYYMMDD
@@ -34,11 +37,11 @@ Example entry:
 
 ## Workflow
 
-- Edit local files in `/media/sf_eva-www/test`
+- Edit local files in `/media/sf_eva-www/www_root/test` or another test variant.
 - Upload to Web Server (see section How to upload to Web Server).
 - Ask before creating a git commit.
 - Ask before pushing changes to git remote.
-- When test web is approved, copy the files from the chosen test variant to project root.
+- When test web is approved, copy the files from the chosen test variant to `www_root/`.
 
 ## How to upload to Web Server
 
@@ -52,7 +55,7 @@ Upload to web server using FTP (example):
    ftp -n $FTP_SERVER $FTP_PORT << EOF
    user $FTP_USERNAME $FTP_PASSWORD
    binary
-   put /media/sf_eva-www/userconfig/concert.csv userconfig/concert.csv
+   put /media/sf_eva-www/www_root/userconfig/concert.csv userconfig/concert.csv
    quit
    EOF
    ```

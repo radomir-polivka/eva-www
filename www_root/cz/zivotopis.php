@@ -41,7 +41,7 @@ $cnt = '
 	<li>Johann Joseph Fux Orgelwettbewerb 2005 v Anger (Rakousko)</li>
 	<li>Concorso Organistico Internazionale "Francesco d&#39;Onofrio" 2006 v 
 		Carunchiu (Itálie)</li>
-	<li>Prix Joseph Bossard 2009 v Bellelay (Švýcarsko))</li>
+	<li>Prix Joseph Bossard 2009 v Bellelay (Švýcarsko)</li>
 </ul>
 
 <p>

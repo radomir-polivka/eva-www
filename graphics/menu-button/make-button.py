@@ -8,8 +8,7 @@ Script-Fu primitives.
 
 Usage:
     python make-button.py LINE1 [--line2 TEXT] [--color #rrggbb] [--size PX]
-                          [--letter-spacing PX]
-                          [--unsharp-mask RADIUS,AMOUNT,THRESHOLD]
+                          [--font NAME] [--letter-spacing PX]
                           [--out DIR] [--filename NAME] [--scm-only FILE]
 
 Arguments:
@@ -17,15 +16,9 @@ Arguments:
     --line2 TEXT                   Text for the second line; omit for single-line
     --color #rrggbb                Text color                (default: #cc5500)
     --size  PX                     Font size in pixels       (default: 14)
+    --font  NAME                   Font family name          (default: Tahoma)
     --letter-spacing PX            Extra spacing between characters in pixels
-                                   (default: 1)
-    --unsharp-mask RADIUS,AMOUNT,THRESHOLD
-                                   Apply unsharp mask after flattening.
-                                   RADIUS: blur radius in pixels (float)
-                                   AMOUNT: strength 0.0-1.0+ (float)
-                                   THRESHOLD: 0-255 (int)
-                                   Example: --unsharp-mask 2.0,0.5,0
-                                   (default: off)
+                                   (default: 0)
     --out   DIR                    Output directory          (default: ./out)
     --filename NAME                Output filename without extension
                                                              (default: button)
@@ -39,7 +32,7 @@ Button geometry (matches existing site buttons):
     Two-line    : width=auto x 31 px, each line right-aligned,
                   row1 at y=0, row2 at y=13
     Background  : #d8d8d8
-    Font        : Tahoma, hinting on, auto-hinter on, antialiasing on
+    Font        : Tahoma by default, hinting on, auto-hinter on, antialiasing on
 """
 
 import argparse
@@ -54,7 +47,7 @@ import tempfile
 # ---------------------------------------------------------------------------
 GIMP_EXE        = r'D:\app-portable\gimp\App\gimp\bin\gimp-2.8.exe'
 BG_COLOR        = (0xd8, 0xd8, 0xd8)   # #d8d8d8
-FONT_NAME       = 'Tahoma'
+DEFAULT_FONT    = 'Tahoma'
 ROW2_Y          = 13    # vertical offset of second line
 HEIGHT_1LINE    = 18    # image height for single-line buttons
 HEIGHT_2LINE    = 31    # image height for two-line buttons
@@ -74,10 +67,10 @@ def parse_args():
                         help='Text color (default: #cc5500)')
     parser.add_argument('--size', default=14, type=int, metavar='PX',
                         help='Font size in pixels (default: 14)')
-    parser.add_argument('--letter-spacing', default=1, type=int, metavar='PX',
-                        help='Extra letter spacing in pixels (default: 1)')
-    parser.add_argument('--unsharp-mask', default=None, metavar='RADIUS,AMOUNT,THRESHOLD',
-                        help='Apply unsharp mask, e.g. 2.0,0.5,0 (default: off)')
+    parser.add_argument('--font', default=DEFAULT_FONT, metavar='NAME',
+                        help='Font family name (default: Tahoma)')
+    parser.add_argument('--letter-spacing', default=0, type=int, metavar='PX',
+                        help='Extra letter spacing in pixels (default: 0)')
     parser.add_argument('--out', default='./out', metavar='DIR',
                         help='Output directory (default: ./out)')
     parser.add_argument('--filename', default='button', metavar='NAME',
@@ -96,17 +89,6 @@ def parse_color(hex_color):
     return int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16)
 
 
-def parse_unsharp_mask(s):
-    """Parse 'radius,amount,threshold' string. Returns (radius, amount, threshold)."""
-    try:
-        parts = s.split(',')
-        if len(parts) != 3:
-            raise ValueError
-        return float(parts[0]), float(parts[1]), int(parts[2])
-    except (ValueError, AttributeError):
-        sys.exit('ERROR: --unsharp-mask must be RADIUS,AMOUNT,THRESHOLD e.g. 2.0,0.5,0')
-
-
 # ---------------------------------------------------------------------------
 # Script-Fu generation helpers
 # ---------------------------------------------------------------------------
@@ -115,7 +97,8 @@ def scm_escape(text):
     return text.replace('\\', '\\\\').replace('"', '\\"')
 
 
-def scm_measure_block(img_var, lay_var, tw_var, text, font_size, letter_spacing):
+def scm_measure_block(img_var, lay_var, tw_var, text, font_size, font_name,
+                      letter_spacing):
     """Script-Fu let* bindings: create a scratch image, render text, bind tw_var to width.
     letter_spacing is applied so measurement accounts for extra spacing."""
     lines = [
@@ -123,7 +106,7 @@ def scm_measure_block(img_var, lay_var, tw_var, text, font_size, letter_spacing)
         '   (%s  (car (gimp-layer-new %s 1 1 RGB-IMAGE "m" 100 0)))' % (lay_var, img_var),
         '   (dummy-%s-ins (gimp-image-insert-layer %s %s 0 -1))' % (lay_var, img_var, lay_var),
         '   (dummy-%s-txt (car (gimp-text-fontname %s -1 0 0 "%s" 0 TRUE %d UNIT-PIXEL "%s")))' % (
-            tw_var, img_var, text, font_size, FONT_NAME),
+            tw_var, img_var, text, font_size, font_name),
     ]
     if letter_spacing != 0:
         lines += [
@@ -151,22 +134,8 @@ def scm_setup_text_layer(tl_var, color_rgb, letter_spacing):
     return lines
 
 
-def scm_post_flatten(unsharp):
-    """Return Script-Fu lines for post-processing after gimp-image-flatten:
-    optional unsharp mask. Assumes the flattened layer is bound to 'final-lay'
-    and image to 'img'."""
-    lines = []
-    if unsharp is not None:
-        radius, amount, threshold = unsharp
-        lines += [
-            '   (dummy-usm (plug-in-unsharp-mask RUN-NONINTERACTIVE img final-lay %.6g %.6g %d))' % (
-                radius, amount, threshold),
-        ]
-    return lines
-
-
-def build_scm_1line(line1, color_rgb, font_size, out_png_fwd,
-                    letter_spacing=1, unsharp=None):
+def build_scm_1line(line1, color_rgb, font_size, font_name, out_png_fwd,
+                    letter_spacing=0):
     """Script-Fu for a single-line button."""
     r, g, b    = color_rgb
     br, bg, bb = BG_COLOR
@@ -178,7 +147,8 @@ def build_scm_1line(line1, color_rgb, font_size, out_png_fwd,
 
     a('(let*')
     a('  (')
-    lines += scm_measure_block('img-m1', 'lay-m1', 'tw1', l1, font_size, letter_spacing)
+    lines += scm_measure_block('img-m1', 'lay-m1', 'tw1', l1, font_size,
+                               font_name, letter_spacing)
     a('   (img    (car (gimp-image-new tw1 %d RGB)))' % h)
     a('   (bg-lay (car (gimp-layer-new img tw1 %d RGB-IMAGE "Background" 100 0)))' % h)
     a('   (dummy-bg-ins  (gimp-image-insert-layer img bg-lay 0 -1))')
@@ -186,12 +156,11 @@ def build_scm_1line(line1, color_rgb, font_size, out_png_fwd,
     a('      (gimp-context-set-foreground (list %d %d %d))' % (br, bg, bb))
     a('      (gimp-edit-fill bg-lay FOREGROUND-FILL)))')
     a('   (tl1   (car (gimp-text-fontname img -1 0 0 "%s" 0 TRUE %d UNIT-PIXEL "%s")))' % (
-        l1, font_size, FONT_NAME))
+        l1, font_size, font_name))
     lines += scm_setup_text_layer('tl1', color_rgb, letter_spacing)
     a('   (dummy-tl1-pos  (gimp-layer-set-offsets tl1 (- tw1 (car (gimp-drawable-width tl1))) 0))')
     a('   (dummy-flat (gimp-image-flatten img))')
     a('   (final-lay  (car (gimp-image-get-active-drawable img)))')
-    lines += scm_post_flatten(unsharp)
     a('  )')
     a('  (begin')
     a('    (file-png-save RUN-NONINTERACTIVE img final-lay')
@@ -205,8 +174,8 @@ def build_scm_1line(line1, color_rgb, font_size, out_png_fwd,
     return '\n'.join(lines) + '\n'
 
 
-def build_scm_2line(line1, line2, color_rgb, font_size, out_png_fwd,
-                    letter_spacing=1, unsharp=None):
+def build_scm_2line(line1, line2, color_rgb, font_size, font_name, out_png_fwd,
+                    letter_spacing=0):
     """Script-Fu for a two-line button."""
     r, g, b    = color_rgb
     br, bg, bb = BG_COLOR
@@ -219,8 +188,10 @@ def build_scm_2line(line1, line2, color_rgb, font_size, out_png_fwd,
 
     a('(let*')
     a('  (')
-    lines += scm_measure_block('img-m1', 'lay-m1', 'tw1', l1, font_size, letter_spacing)
-    lines += scm_measure_block('img-m2', 'lay-m2', 'tw2', l2, font_size, letter_spacing)
+    lines += scm_measure_block('img-m1', 'lay-m1', 'tw1', l1, font_size,
+                               font_name, letter_spacing)
+    lines += scm_measure_block('img-m2', 'lay-m2', 'tw2', l2, font_size,
+                               font_name, letter_spacing)
     a('   (tw     (max tw1 tw2))')
     a('   (img    (car (gimp-image-new tw %d RGB)))' % h)
     a('   (bg-lay (car (gimp-layer-new img tw %d RGB-IMAGE "Background" 100 0)))' % h)
@@ -229,16 +200,15 @@ def build_scm_2line(line1, line2, color_rgb, font_size, out_png_fwd,
     a('      (gimp-context-set-foreground (list %d %d %d))' % (br, bg, bb))
     a('      (gimp-edit-fill bg-lay FOREGROUND-FILL)))')
     a('   (tl1   (car (gimp-text-fontname img -1 0 0 "%s" 0 TRUE %d UNIT-PIXEL "%s")))' % (
-        l1, font_size, FONT_NAME))
+        l1, font_size, font_name))
     lines += scm_setup_text_layer('tl1', color_rgb, letter_spacing)
     a('   (dummy-tl1-pos   (gimp-layer-set-offsets tl1 (- tw (car (gimp-drawable-width tl1))) 0))')
     a('   (tl2   (car (gimp-text-fontname img -1 0 %d "%s" 0 TRUE %d UNIT-PIXEL "%s")))' % (
-        ROW2_Y, l2, font_size, FONT_NAME))
+        ROW2_Y, l2, font_size, font_name))
     lines += scm_setup_text_layer('tl2', color_rgb, letter_spacing)
     a('   (dummy-tl2-pos   (gimp-layer-set-offsets tl2 (- tw (car (gimp-drawable-width tl2))) %d))' % ROW2_Y)
     a('   (dummy-flat (gimp-image-flatten img))')
     a('   (final-lay  (car (gimp-image-get-active-drawable img)))')
-    lines += scm_post_flatten(unsharp)
     a('  )')
     a('  (begin')
     a('    (file-png-save RUN-NONINTERACTIVE img final-lay')
@@ -318,18 +288,19 @@ def main():
     args = parse_args()
 
     color_rgb  = parse_color(args.color)
+    font_name  = args.font
     out_dir    = os.path.abspath(args.out)
     os.makedirs(out_dir, exist_ok=True)
     out_png    = os.path.join(out_dir, args.filename + '.png')
     out_fwd    = out_png.replace('\\', '/')
-    unsharp    = parse_unsharp_mask(args.unsharp_mask) if args.unsharp_mask else None
-
     if args.line2:
-        scm = build_scm_2line(args.line1, args.line2, color_rgb, args.size, out_fwd,
-                              args.letter_spacing, unsharp)
+        scm = build_scm_2line(args.line1, args.line2, color_rgb, args.size,
+                              font_name, out_fwd,
+                              args.letter_spacing)
     else:
-        scm = build_scm_1line(args.line1, color_rgb, args.size, out_fwd,
-                              args.letter_spacing, unsharp)
+        scm = build_scm_1line(args.line1, color_rgb, args.size, font_name,
+                              out_fwd,
+                              args.letter_spacing)
 
     run_gimp(scm, scm_only_path=args.scm_only)
 

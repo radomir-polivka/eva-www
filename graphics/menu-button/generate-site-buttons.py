@@ -8,13 +8,15 @@ Calls make-button.py once per button per state.
 Usage:
     python generate-site-buttons.py [--color-active #rrggbb]
                                     [--color-inactive #rrggbb]
-                                    [--size PX]
-                                    [--out DIR]
+                                    [--size PX] [--font NAME]
+                                    [--letter-spacing PX] [--out DIR]
 
 Arguments:
     --color-active   #rrggbb    Active text color   (default: #f76900)
     --color-inactive #rrggbb    Inactive text color (default: #301c28)
     --size PX                   Font size in pixels (default: 14)
+    --font NAME                 Font family name    (default: Tahoma)
+    --letter-spacing PX         Extra letter spacing in pixels (default: 0)
     --out  DIR                  Staging output directory
                                 (default: ./out/site-buttons next to this script)
 
@@ -41,7 +43,7 @@ BUTTONS = [
     ('zivotopis',               u'\u017divotopis'),
     ('koncerty',                u'Koncerty'),
     ('cd-mp3',                  u'CD, mp3'),
-    ('pozitiv',                 u'Varhann\u00ed pozitiv'),
+    ('pozitiv',                 u'Pozitiv'),
     ('foto',                    u'Foto'),
     ('pro-poradatele',          u'Pro po\u0159adatele'),
     ('kontakt',                 u'Kontakt'),
@@ -52,10 +54,14 @@ BUTTONS = [
     ('photo-gallery',           u'Photo gallery'),
     ('for-concert-organizers',  u'For concert', u'organizers'),
     ('contact',                 u'Contact'),
+    # Language switch
+    ('english',                 u'English'),
+    ('cesky',                   u'česky'),
+    ('bar',                     u'|')
 ]
 
 STATES = [
-    ('active',   '#f76900'),
+    ('active',   '#f86900'),
     ('inactive', '#301c28'),
 ]
 
@@ -74,10 +80,10 @@ def parse_args():
                         help='Inactive text color (default: #301c28)')
     parser.add_argument('--size', default=14, type=int, metavar='PX',
                         help='Font size in pixels (default: 14)')
-    parser.add_argument('--letter-spacing', default=1, type=int, metavar='PX',
-                        help='Extra letter spacing in pixels (default: 1)')
-    parser.add_argument('--unsharp-mask', default=None, metavar='RADIUS,AMOUNT,THRESHOLD',
-                        help='Apply unsharp mask, e.g. 2.0,0.5,0 (default: off)')
+    parser.add_argument('--font', default='Tahoma', metavar='NAME',
+                        help='Font family name (default: Tahoma)')
+    parser.add_argument('--letter-spacing', default=0, type=int, metavar='PX',
+                        help='Extra letter spacing in pixels (default: 0)')
     parser.add_argument('--out', default=default_out, metavar='DIR',
                         help='Staging output directory')
     return parser.parse_args()
@@ -106,10 +112,10 @@ def main():
     print('Active color     : %s' % args.color_active)
     print('Inactive color   : %s' % args.color_inactive)
     print('Font size        : %d px' % args.size)
-    if args.letter_spacing != 1:
+    if args.font != 'Tahoma':
+        print('Font             : %s' % args.font)
+    if args.letter_spacing != 0:
         print('Letter spacing   : %d px' % args.letter_spacing)
-    if args.unsharp_mask:
-        print('Unsharp mask     : %s' % args.unsharp_mask)
     print('Buttons          : %d x %d states = %d PNGs' % (
         len(BUTTONS), len(STATES), total))
     print()
@@ -132,12 +138,12 @@ def main():
                 '--out',   out_sub,
                 '--filename', fname,
             ]
+            if args.font != 'Tahoma':
+                cmd += ['--font', args.font]
             if line2:
                 cmd += ['--line2', line2]
-            if args.letter_spacing != 1:
+            if args.letter_spacing != 0:
                 cmd += ['--letter-spacing', str(args.letter_spacing)]
-            if args.unsharp_mask:
-                cmd += ['--unsharp-mask', args.unsharp_mask]
 
             label = '%s/%s' % (state, fname)
             print('[%d/%d] %s' % (done + 1, total, label))
